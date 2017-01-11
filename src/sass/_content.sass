@@ -1,0 +1,28 @@
+%half
+  width: 50%
+  display: inline-block
+  clear: none
+  border-radius: 3px
+  background-color: #FFF
+  vertical-align: top
+
+.src
+  @extend %half
+
+  &__text
+    font-family: monospace
+    width: 95%
+    width: 100%
+    height: 100%
+
+.display
+  @extend %half
+  overflow-x: hidden 
+  word-break: break-all
+  font-family: sans-serif
+
+  * + *
+    padding-top: .5em
+
+html, body 
+  height: 100% 
