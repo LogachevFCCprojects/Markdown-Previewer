@@ -1,5 +1,3 @@
-var initialSourcecode = '### Header ###\nkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBGkdjfgskdjfgsdkfjvnsdkfjbnaekdfjgns;dkjfbn;LKJHBLKJBSGLKSJFBG';
-
 var MarkdownPreviewer = React.createClass({
     propTypes: {
         data: React.PropTypes.string.isRequired
@@ -9,7 +7,7 @@ var MarkdownPreviewer = React.createClass({
             sourcecode: this.props.data
         };
     },
-    sourcecodeKeyUp: function(e) {
+    sourcecodeOnChange: function(e) {
         var newSourceCode = ReactDOM.findDOMNode(this.refs.src).value
         this.setState({sourcecode: newSourceCode});
     },  
@@ -23,17 +21,24 @@ var MarkdownPreviewer = React.createClass({
         var sourcecode = this.state.sourcecode;
         return (
             <div>
+                <div className="header">
+                    <h1>Markdown Previewer</h1>
+                    <p>freeCodeCamp project by <a href="http://vladimirlogachev.ru" target="_blank" rel="noopener noreferrer">Vladimir Logachev</a></p>
+                    <p>Made with React, SASS, Marked. <a href="https://github.com/LogachevFCCprojects/Markdown-Previewer" target="_blank" rel="noopener noreferrer">Github</a></p>
+                </div>
                 <div className="src">
-                    <textarea className='src__text'onChange={this.sourcecodeKeyUp}
+                    <textarea className='src__text'onChange={this.sourcecodeOnChange}
                     placeholder='markdown code here' ref='src'>{sourcecode}</textarea>
                 </div>
-                <div className="display" dangerouslySetInnerHTML={this.createMarkup()} />
+                <div className="display">
+                    <div className="display__text" dangerouslySetInnerHTML={this.createMarkup()} />
+                </div>
             </div>
             )
     }
 });
 
 ReactDOM.render(
-    <MarkdownPreviewer data={initialSourcecode+initialSourcecode+initialSourcecode} />,
+    <MarkdownPreviewer data={initialSourcecode} />,
     document.getElementById('root')
     );
