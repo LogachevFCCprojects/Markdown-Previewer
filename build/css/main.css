@@ -1,0 +1,115 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain) */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1.1;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.src, .display {
+  width: 48%;
+  height: 80vh;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: inline-block;
+  /* clear: none */
+  background-color: #FFF;
+  vertical-align: baseline;
+}
+
+.src__text, .display__text pre {
+  font-family: 'Cousine', monospace;
+  font-size: 16px;
+  background-color: #F5F5F5;
+}
+
+.header h1, .header h2, .header h3, .header h4, .header h5, .header h6, .header strong, .display__text h1, .display__text h2, .display__text h3, .display__text h4, .display__text h5, .display__text h6, .display__text strong {
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-weight: 600;
+  color: #000;
+}
+
+.header, .display {
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+  font-size: 17px;
+}
+
+.header {
+  height: 18vh;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.header h1, .header h2, .header h3, .header h4, .header h5, .header h6, .header strong {
+  padding-top: .5em;
+}
+
+a {
+  color: #00bcd4;
+}
+
+.src {
+  margin-left: 1em;
+  margin-right: auto;
+}
+
+.src__text {
+  padding-left: 2%;
+  padding-right: 2%;
+  height: 80vh;
+  resize: none;
+  width: 100%;
+}
+
+.display {
+  overflow-x: hidden;
+  word-break: break-word;
+  float: right;
+}
+
+.display__text {
+  height: 80vh;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.display__text pre {
+  border: 1px solid #e0e0e0;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
+  padding: 1em;
+}
+
+.display__text * + * {
+  padding-top: .5em;
+}
