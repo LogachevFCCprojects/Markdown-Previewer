@@ -10,9 +10,6 @@ var MarkdownPreviewer = React.createClass({
     sourcecodeOnChange: function(e) {
         var newSourceCode = ReactDOM.findDOMNode(this.refs.src).value
         this.setState({sourcecode: newSourceCode});
-    },  
-    componentDidMount: function() {
-        ReactDOM.findDOMNode(this.refs.src).focus();
     },
     createMarkup: function(src) {
         return {__html: marked(this.state.sourcecode)};

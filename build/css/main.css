@@ -46,7 +46,7 @@ table {
   vertical-align: baseline;
 }
 
-.src__text, .display__text pre {
+.src__text, .display__text p code, .display__text pre {
   font-family: 'Cousine', monospace;
   font-size: 16px;
   background-color: #F5F5F5;
@@ -103,11 +103,28 @@ a {
   padding-right: 2%;
 }
 
+.display__text p code {
+  border: 1px solid #e0e0e0;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
+  padding: .3em;
+}
+
+.display__text ul, .display__text ol {
+  margin-left: 1.5em;
+}
+
 .display__text pre {
   border: 1px solid #e0e0e0;
   -webkit-border-radius: 3px;
           border-radius: 3px;
-  padding: 1em;
+  margin: .5em;
+  padding: .5em;
+}
+
+.display__text hr {
+  height: 0;
+  padding: 0;
 }
 
 .display__text * + * {
